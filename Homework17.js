@@ -9,19 +9,14 @@
 //const characters = Array.from('abcdefghijklmnopqrstuvwxyz0123456789')
 const characters = 'abcdefghijklmnopqrstuvwxyz0123456789'
 const length = 16
-const sourceArr = []
+let sourceString = ""
 const key = generateKey(length, characters)
 function generateKey(length,characters) {
-    let j = 0
-    while (j < length) {
-        const numberPosition = Array.from(characters).length
-        function getRandomPosition(numberPosition) {
-            return Math.floor(Math.random() * numberPosition)
-        }
-        sourceArr.push(Array.from(characters)[Math.floor(Math.random() * numberPosition)])
-        j = j + 1
+    for (let j = 0; j < length; j++) {
+        const numberPosition = characters.length
+        sourceString = sourceString + characters[Math.floor(Math.random() * numberPosition)]
     }
-    return sourceArr.join('')
+    return sourceString
 }
-alert(generateKey(key))
+//alert(generateKey(key))
 console.log(key)
